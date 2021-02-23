@@ -1,7 +1,9 @@
 <template>
     <div class="login-container">
         <!-- 导航栏 -->
-        <van-nav-bar class="page-nav-bar" title="登录"/>
+        <van-nav-bar class="page-nav-bar" title="登录">
+        <van-icon slot="left" name="cross" @click="$router.back()" />
+        </van-nav-bar>
         <!-- 登录表单 -->
         <van-form ref="loginForm" @submit="onSubmit">
         <van-field v-model="user.mobile" name="mobile" placeholder="请输入手机号" :rules="userFormRules.mobile" type="number" maxlength="11" >
@@ -12,7 +14,7 @@
          <template #button>
              <!-- 倒计时时间 -->
          <van-count-down v-if="isCountDownShow" :time="1000*10" format="ss s" @finish="isCountDownShow=false"/>
-          <van-button v-else class="send-sms-btn" round size="small" type="default" @click="onSensSms" native-type="button">获取验证码</van-button>
+          <van-button v-else class="send-sms-btn" round size="small" type="default" @click="onSendSms" native-type="button">获取验证码</van-button>
          </template>
          </van-field>
         <div class="login-btn-wrap">
@@ -68,6 +70,9 @@ export default {
               const {data} = await login(user)
               this.$store.commit('setUser',data.data)
               this.$toast.success('登录成功')
+
+              //登录成功,跳转回原来的页面
+              this.$router.back()
           }catch(err){
               if(err.response.status===400){
               this.$toast.fail('手机号或验证码错误')
@@ -78,7 +83,7 @@ export default {
           }
           //4.根据请求响应结果处理后续操作
         },
-       async onSensSms(){
+       async onSendSms(){
            //1 校验手机号
            try{
            await this.$refs.loginForm.validate('mobile')
@@ -107,6 +112,9 @@ export default {
 </script>
 <style lang="less" scoped>
 .login-container{
+    .van-nav-bar .van-icon {
+     color: #fff;
+}
     .toutiao{
      font-size: 37px;
     }
