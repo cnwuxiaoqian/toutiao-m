@@ -3,7 +3,7 @@
         <!-- 导航栏 -->
         <van-nav-bar class="page-nav-bar" fixed>
             <van-button slot="title" type="info" size="small"
-            round class="search-btn">
+            round class="search-btn" to="/search">
             <span class="toutiao toutiao-magnifiersearch"></span>
             搜索</van-button>
         </van-nav-bar>
