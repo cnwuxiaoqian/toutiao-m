@@ -128,7 +128,7 @@ export default {
             this.deleteChannel(channel)
            }else{
              //非编辑状态，执行切换频道
-             this.$emit('update-active',index,false)
+             this.$emit('update-active',index,true)
            }
          
        },

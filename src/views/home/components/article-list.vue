@@ -20,7 +20,7 @@
         success-duration="1500">
         <van-list
          v-model="loading"
-         :finished="finished"
+         :finished="finished"  
          finished-text="没有更多了"
          :error.sync="error"
          error-text="请求失败，点击重新加载"
@@ -131,7 +131,7 @@ export default {
 }
 </script>
 <style scoped>
-记住列表滚动位置
+/* 记住列表滚动位置 */
 .article-list{
     height: 79vh;
     overflow-y: auto;

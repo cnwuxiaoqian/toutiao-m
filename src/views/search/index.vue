@@ -38,7 +38,7 @@ import SearchResult from './component/search-result'
 import {setItem,getItem} from '@/utils/storage'
 export default {
     name:'SearchIndex',
-    components:{
+    components:{  
       SearchHistory,
       SearchSuggestion,
       SearchResult

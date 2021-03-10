@@ -60,7 +60,7 @@ export default {
     },
     created(){
         this.loadChannels()
-    },
+    },     
     methods:{
         async loadChannels(){
             try{

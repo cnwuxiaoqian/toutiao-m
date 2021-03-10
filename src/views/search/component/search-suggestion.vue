@@ -4,7 +4,7 @@
          :key="index"
          icon="search"
          @click="$emit('search',text)"
-         >
+         >  
         <div slot="title" v-html="highlight(text)"></div>
          </van-cell>
          <!-- 使用v-html指令可以绑定渲染带有HTML标签的字符串 -->
@@ -28,7 +28,7 @@ export default {
         }
     },
     watch:{
-        searchText:{
+        searchText:{ 
         //当searchText发生改变的时候会调用
        // handler函数
        //注意：handler 函数名称是固定的

@@ -11,7 +11,9 @@
                 <span class="name">{{userInfo.name}}</span>
                 </div>
                 <div class="right">
-                    <van-button size="mini" round>编辑资料</van-button>
+                    <van-button size="mini" 
+                    to="/user/profile"
+                    round>编辑资料</van-button>
                 </div>
             </div>
             <div class="data-stats">
@@ -73,7 +75,7 @@ export default {
       }
     },
     created(){
-        //如果用户登录,则请求加载用户信息
+        //如果用户登录,则请求加载用户信息 
       if(this.user){
           this.loadUserInfo()
       }
